@@ -5,7 +5,7 @@
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_large">24dp</dimen>
     <dimen name="margin_xlarge">48dp</dimen>
-    <dimen name="picture_margin">12dp</dimen>
+
 
     <!-- Espaçamentos -->
     <dimen name="padding_small">8dp</dimen>
@@ -18,6 +18,10 @@
     <dimen name="text_size_large">20sp</dimen>
 
     <!-- Tamanhos Personalizados   -->
-    <dimen name="picture_dimen">52dp</dimen>
+    <dimen name="dimen_picture">52dp</dimen>
+    <dimen name="margin_card">4dp</dimen>
+    <dimen name="corner_radius_card">12dp</dimen>
+    <dimen name="elevation_card">6dp</dimen>
+    <dimen name="margin_picture">12dp</dimen>
 
 </resources>
