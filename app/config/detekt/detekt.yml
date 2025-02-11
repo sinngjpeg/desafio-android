@@ -938,7 +938,7 @@ formatting:
     autoCorrect: true
     indentSize: 4
   NoTrailingSpaces:
-    active: true
+    active: false
     autoCorrect: true
   NoUnitReturn:
     active: true
