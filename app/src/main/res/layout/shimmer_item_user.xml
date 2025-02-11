@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/card_margin"
-    app:cardBackgroundColor="@color/colorPrimary"
-    app:cardCornerRadius="@dimen/card_corner_radius"
-    app:cardElevation="@dimen/card_elevation">
+    android:layout_margin="@dimen/margin_card"
+    android:background="@color/colorPrimary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,12 +12,12 @@
 
         <View
             android:id="@+id/shimmer_picture"
-            android:layout_width="@dimen/picture_dimen"
-            android:layout_height="@dimen/picture_dimen"
+            android:layout_width="@dimen/dimen_picture"
+            android:layout_height="@dimen/dimen_picture"
             android:layout_marginStart="@dimen/margin_large"
-            android:layout_marginTop="@dimen/picture_margin"
-            android:layout_marginBottom="@dimen/picture_margin"
-            android:background="@drawable/shimmer_item_user_backgroud"
+            android:layout_marginTop="@dimen/margin_picture"
+            android:layout_marginBottom="@dimen/margin_picture"
+            android:background="@drawable/shimmer_item_user_background"
             android:contentDescription="@null"
             android:importantForAccessibility="no"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -28,11 +26,11 @@
 
         <View
             android:id="@+id/shimmer_username"
-            android:layout_width="140dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/shimmer_width"
+            android:layout_height="@dimen/shimmer_height"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_small"
-            android:background="@drawable/shimmer_item_user_backgroud"
+            android:background="@drawable/shimmer_item_user_background"
             android:contentDescription="@null"
             android:importantForAccessibility="no"
             app:layout_constraintBottom_toTopOf="@+id/shimmer_name"
@@ -41,11 +39,11 @@
 
         <View
             android:id="@+id/shimmer_name"
-            android:layout_width="120dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="@dimen/shimmer_width"
+            android:layout_height="@dimen/shimmer_height"
+            android:layout_marginTop="@dimen/margin_shimmer_name"
             android:layout_marginBottom="@dimen/margin_small"
-            android:background="@drawable/shimmer_item_user_backgroud"
+            android:background="@drawable/shimmer_item_user_background"
             android:contentDescription="@null"
             android:importantForAccessibility="no"
             app:layout_constraintBottom_toBottomOf="@+id/shimmer_picture"
@@ -53,14 +51,14 @@
             app:layout_constraintTop_toBottomOf="@+id/shimmer_username" />
 
         <View
-            android:id="@+id/Shimmer_progressbar"
+            android:id="@+id/shimmer_progressbar"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:layout_marginBottom="@dimen/margin_small"
-            android:background="@drawable/shimmer_item_user_backgroud"
+            android:background="@drawable/shimmer_item_user_background"
             android:importantForAccessibility="noHideDescendants"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/shimmer_picture"
@@ -68,4 +66,4 @@
             app:layout_constraintStart_toStartOf="@+id/shimmer_picture"
             app:layout_constraintTop_toTopOf="@+id/shimmer_picture" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</FrameLayout>
