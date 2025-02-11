@@ -907,7 +907,7 @@ formatting:
     active: true
     autoCorrect: true
   NoConsecutiveBlankLines:
-    active: true
+    active: false
     autoCorrect: true
   NoConsecutiveComments:
     active: false
