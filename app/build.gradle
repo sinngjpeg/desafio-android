@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.recyclerview)
 
     // Coroutines
     implementation(libs.coroutines.core)
@@ -122,6 +123,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.fragment)
 
+    implementation(libs.javax.inject)
     //Test
     kaptAndroidTest(libs.hilt.compiler)
     kaptTest(libs.hilt.compiler)
