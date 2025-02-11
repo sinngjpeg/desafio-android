@@ -23,5 +23,8 @@
     <dimen name="corner_radius_card">12dp</dimen>
     <dimen name="elevation_card">6dp</dimen>
     <dimen name="margin_picture">12dp</dimen>
+    <dimen name="margin_shimmer_name">4dp</dimen>
+    <dimen name="shimmer_width">150dp</dimen>
+    <dimen name="shimmer_height">24dp</dimen>
 
 </resources>
