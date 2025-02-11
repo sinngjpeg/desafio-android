@@ -1,6 +1,8 @@
 package com.picpay.desafio.android.framework.di
 
 import com.picpay.desafio.android.BuildConfig
+import com.picpay.desafio.android.data.repository.UserRepositoryImpl
+import com.picpay.desafio.android.domain.repository.UserRepository
 import com.picpay.desafio.android.framework.network.PicPayService
 import dagger.Module
 import dagger.Provides
@@ -11,6 +13,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -19,17 +22,21 @@ object NetworkModule {
     private const val TIMEOUT_SECONDS = 15L
 
     @Provides
+    @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
             setLevel(
                 if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
-                } else HttpLoggingInterceptor.Level.NONE
+                } else {
+                    HttpLoggingInterceptor.Level.NONE
+                }
             )
         }
     }
 
     @Provides
+    @Singleton
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient {
@@ -41,11 +48,13 @@ object NetworkModule {
     }
 
     @Provides
+    @Singleton
     fun provideGsonConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
     @Provides
+    @Singleton
     fun providesRetrofit(
         okHttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
@@ -56,5 +65,11 @@ object NetworkModule {
             .addConverterFactory(converterFactory)
             .build()
             .create(PicPayService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(service: PicPayService): UserRepository {
+        return UserRepositoryImpl(service)
     }
 }
