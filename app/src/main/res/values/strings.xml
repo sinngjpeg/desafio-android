@@ -3,4 +3,5 @@
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
     <string name="common_update">Atualizar</string>
+    <string name="description_loading">Carregando informações</string>
 </resources>
