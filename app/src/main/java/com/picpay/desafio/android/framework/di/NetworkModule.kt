@@ -1,13 +1,18 @@
 package com.picpay.desafio.android.framework.di
 
+import android.content.Context
+import androidx.room.Room
 import com.picpay.desafio.android.BuildConfig
 import com.picpay.desafio.android.common.AppCoroutinesDispatchers
 import com.picpay.desafio.android.data.repository.UserRepositoryImpl
+import com.picpay.desafio.android.domain.local.AppDataBase
+import com.picpay.desafio.android.domain.local.UserDAO
 import com.picpay.desafio.android.domain.repository.UserRepository
 import com.picpay.desafio.android.framework.network.PicPayService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -70,10 +75,27 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    fun provideDataBase(@ApplicationContext context: Context): AppDataBase {
+        return Room.databaseBuilder(
+            context.applicationContext,
+            AppDataBase::class.java,
+            "user_database"
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserDao(appDataBase: AppDataBase): UserDAO {
+        return appDataBase.userDao()
+    }
+
+    @Provides
+    @Singleton
     fun provideUserRepository(
         service: PicPayService,
+        userDAO: UserDAO,
         dispatchers: AppCoroutinesDispatchers
     ): UserRepository {
-        return UserRepositoryImpl(service, dispatchers)
+        return UserRepositoryImpl(service, userDAO, dispatchers)
     }
 }
