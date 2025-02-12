@@ -30,6 +30,7 @@ javax-inject = "1"
 recyclerview = "1.4.0"
 navigation = "2.8.6"
 splashscreen = "1.0.1"
+room = "2.6.1"
 
 
 [libraries]
@@ -108,6 +109,11 @@ javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax-inje
 
 #splash screen
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+
+# Room
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 
 [plugins]
