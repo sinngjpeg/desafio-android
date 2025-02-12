@@ -4,4 +4,6 @@
     <string name="error">Ocorreu um erro. Tente novamente.</string>
     <string name="common_update">Atualizar</string>
     <string name="description_loading">Carregando informações</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
