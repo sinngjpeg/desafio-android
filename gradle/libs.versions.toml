@@ -29,6 +29,7 @@ androidx-fragment = "1.8.5"
 javax-inject = "1"
 recyclerview = "1.4.0"
 navigation = "2.8.6"
+splashscreen = "1.0.1"
 
 
 [libraries]
@@ -104,6 +105,9 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 
 # Javax
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax-inject" }
+
+#splash screen
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
 
 
 [plugins]
