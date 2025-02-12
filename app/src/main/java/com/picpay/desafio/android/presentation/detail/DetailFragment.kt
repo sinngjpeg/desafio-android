@@ -41,13 +41,17 @@ class DetailFragment : Fragment() {
             .error(com.picpay.desafio.android.R.drawable.ic_round_account_circle)
             .into(binding.picture)
 
-        binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
+        setBackButton()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setBackButton() {
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 }
