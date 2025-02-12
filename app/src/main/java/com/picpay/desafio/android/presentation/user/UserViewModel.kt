@@ -6,17 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.picpay.desafio.android.domain.model.ScreenState
 import com.picpay.desafio.android.domain.model.User
-import com.picpay.desafio.android.domain.repository.UserRepository
+import com.picpay.desafio.android.domain.usecase.GetUsersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
 @Suppress("TooGenericExceptionCaught")
 class UserViewModel @Inject constructor(
-    private val repository: UserRepository
+    private val getUsersUseCase: GetUsersUseCase
 ) : ViewModel() {
 
     private val _users = MutableLiveData<List<User>>()
@@ -30,16 +28,10 @@ class UserViewModel @Inject constructor(
 
     fun fetchUsers() {
         viewModelScope.launch {
-            // Atualiza o estado da tela para LOADING
             _screenState.postValue(ScreenState.LOADING)
 
             try {
-                // Realiza a operação de entrada/saída em uma thread de background (Dispatchers.IO)
-                val users = withContext(Dispatchers.IO) {
-                    repository.getUsers()
-                }
-
-                // Atualiza os estados com base nos dados retornados
+                val users = getUsersUseCase()
                 if (users.isEmpty()) {
                     _screenState.postValue(ScreenState.EMPTY)
                 } else {
@@ -47,7 +39,6 @@ class UserViewModel @Inject constructor(
                     _screenState.postValue(ScreenState.SUCCESS)
                 }
             } catch (e: Exception) {
-                // Trata erros e atualiza os estados correspondentes
                 _error.postValue(e.message ?: "Erro desconhecido")
                 _screenState.postValue(ScreenState.ERROR)
             }
