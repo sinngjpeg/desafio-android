@@ -23,6 +23,7 @@
         android:id="@+id/picture"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:importantForAccessibility="no"
         app:layout_constraintBottom_toTopOf="@id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +46,7 @@
     <!-- Nome completo -->
     <TextView
         android:id="@+id/name"
+        android:layout_marginTop="@dimen/margin_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorDetail"

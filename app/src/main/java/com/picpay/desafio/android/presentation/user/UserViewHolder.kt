@@ -7,13 +7,18 @@ import com.picpay.desafio.android.domain.model.User
 import com.squareup.picasso.Picasso
 
 class UserViewHolder(
-    private val binding: ItemUserBinding
+    private val binding: ItemUserBinding,
+    private val onItemClick: (User) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(user: User) {
         binding.name.text = user.name
         binding.username.text = user.username
         binding.progressBar.visibility = View.VISIBLE
+
+        binding.root.setOnClickListener {
+            onItemClick(user)
+        }
 
         Picasso.get()
             .load(user.img)

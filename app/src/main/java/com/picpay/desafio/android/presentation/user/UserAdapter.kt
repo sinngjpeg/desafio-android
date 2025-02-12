@@ -8,7 +8,9 @@ import com.picpay.desafio.android.databinding.ItemUserBinding
 import com.picpay.desafio.android.domain.model.User
 
 
-class UserAdapter : ListAdapter<User, UserViewHolder>(DiffCallback()) {
+class UserAdapter(
+    private val onItemClick: (User) -> Unit
+) : ListAdapter<User, UserViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding = ItemUserBinding.inflate(
@@ -16,7 +18,7 @@ class UserAdapter : ListAdapter<User, UserViewHolder>(DiffCallback()) {
             parent,
             false
         )
-        return UserViewHolder(binding)
+        return UserViewHolder(binding, onItemClick)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {

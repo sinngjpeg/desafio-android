@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.picpay.desafio.android.R
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.picpay.desafio.android.databinding.FragmentDetailBinding
-import com.picpay.desafio.android.databinding.FragmentUserBinding
+import com.squareup.picasso.Picasso
 
 class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding: FragmentDetailBinding get() = _binding!!
+    private val args by navArgs<DetailFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,4 +28,24 @@ class DetailFragment : Fragment() {
         _binding = this
     }.root
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val detailViewArg = args.detailViewArgs
+        binding.name.text = detailViewArg.name
+        binding.username.text = detailViewArg.username
+        Picasso.get()
+            .load(detailViewArg.img)
+            .error(com.picpay.desafio.android.R.drawable.ic_round_account_circle)
+            .into(binding.picture)
+
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

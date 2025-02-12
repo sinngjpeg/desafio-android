@@ -2,8 +2,9 @@ package com.picpay.desafio.android.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import com.picpay.desafio.android.R
 import com.picpay.desafio.android.databinding.ActivityMainBinding
-import com.picpay.desafio.android.presentation.user.UserFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,11 +16,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Adiciona o fragmento inicial ao contêiner, se ainda não foi adicionado
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(binding.fragmentContainerView.id, UserFragment()) // Substitua pelo seu Fragment inicial
-                .commit()
-        }
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        navHostFragment.navController
+
+
+//        // Adiciona o fragmento inicial ao contêiner, se ainda não foi adicionado
+//        if (savedInstanceState == null) {
+//            supportFragmentManager.beginTransaction()
+//                .replace(binding.fragmentContainerView.id, UserFragment()) // Substitua pelo seu Fragment inicial
+//                .commit()
+//        }
     }
 }

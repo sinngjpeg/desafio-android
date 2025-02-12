@@ -9,9 +9,12 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.picpay.desafio.android.databinding.FragmentUserBinding
 import com.picpay.desafio.android.domain.model.ScreenState
+import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.android.presentation.detail.DetailViewArg
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -22,7 +25,11 @@ class UserFragment : Fragment() {
     private val binding: FragmentUserBinding get() = _binding!!
 
     private val viewModel: UserViewModel by viewModels()
-    private val adapter by lazy { UserAdapter() }
+    private val adapter by lazy {
+        UserAdapter { user ->
+            navigateToDetail(user)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +50,11 @@ class UserFragment : Fragment() {
         observeUsersViewModel()
         setScreenState(ScreenState.LOADING)
         fetchUsers()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun initUsersAdapter() {
@@ -66,6 +78,18 @@ class UserFragment : Fragment() {
             Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
             setScreenState(ScreenState.ERROR) // Exibe a tela de erro em caso de falha.
         }
+    }
+
+    private fun navigateToDetail(user: User) {
+        val action = UserFragmentDirections.actionUserFragmentToDetailFragment(
+            DetailViewArg(
+                img = user.img,
+                name = user.name,
+                id = user.id,
+                username = user.username
+            )
+        )
+        findNavController().navigate(action)
     }
 
     private fun setScreenState(state: ScreenState) {
