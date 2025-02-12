@@ -20,13 +20,5 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         navHostFragment.navController
-
-
-//        // Adiciona o fragmento inicial ao contêiner, se ainda não foi adicionado
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .replace(binding.fragmentContainerView.id, UserFragment()) // Substitua pelo seu Fragment inicial
-//                .commit()
-//        }
     }
 }
