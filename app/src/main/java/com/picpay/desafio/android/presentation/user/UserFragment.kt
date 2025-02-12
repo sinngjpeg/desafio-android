@@ -1,7 +1,6 @@
 package com.picpay.desafio.android.presentation.user
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,20 +62,19 @@ class UserFragment : Fragment() {
     }
 
     private fun observeUsersViewModel() {
+        // Observa o estado da tela.
+        viewModel.screenState.observe(viewLifecycleOwner) { state ->
+            setScreenState(state)
+        }
+
         // Observa a lista de usuários.
         viewModel.users.observe(viewLifecycleOwner) { userList ->
-            if (userList.isNotEmpty()) {
-                adapter.submitList(userList)
-                setScreenState(ScreenState.SUCCESS) // Exibe a lista de usuários.
-            } else {
-                setScreenState(ScreenState.ERROR) // Exibe a tela de erro se a lista estiver vazia.
-            }
+            adapter.submitList(userList)
         }
 
         // Observa mensagens de erro.
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
-            setScreenState(ScreenState.ERROR) // Exibe a tela de erro em caso de falha.
         }
     }
 
@@ -95,27 +93,20 @@ class UserFragment : Fragment() {
     private fun setScreenState(state: ScreenState) {
         when (state) {
             ScreenState.LOADING -> {
-                Log.d("MainActivity", "Estado: LOADING")
                 setShimmerVisibility(true)
                 binding.viewFlipper.displayedChild = FLIPPER_CHILD_LOADING
             }
-
             ScreenState.SUCCESS -> {
-                Log.d("MainActivity", "Estado: SUCCESS")
                 setShimmerVisibility(false)
                 binding.viewFlipper.displayedChild = FLIPPER_CHILD_SUCCESS
             }
-
-            ScreenState.ERROR -> {
-                Log.d("MainActivity", "Estado: ERROR")
+            ScreenState.EMPTY -> {
                 setShimmerVisibility(false)
                 binding.viewFlipper.displayedChild = FLIPPER_CHILD_ERROR
-
-                // Configura ação do botão "Retry" na tela de erro.
-                binding.includeViewErrorState.buttonRetry.setOnClickListener {
-                    setScreenState(ScreenState.LOADING)
-                    viewModel.fetchUsers()
-                }
+            }
+            ScreenState.ERROR -> {
+                setShimmerVisibility(false)
+                binding.viewFlipper.displayedChild = FLIPPER_CHILD_ERROR
             }
         }
     }
