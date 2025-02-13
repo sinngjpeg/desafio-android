@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.picpay.desafio.android.common.AccessibilityUtils
 import com.picpay.desafio.android.databinding.FragmentDetailBinding
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,7 +36,9 @@ class DetailFragment : Fragment() {
 
         val detailViewArg = args.detailViewArgs
         binding.name.text = detailViewArg.name
+        AccessibilityUtils.setLabelFullName(binding.name)
         binding.username.text = detailViewArg.username
+        AccessibilityUtils.setLabelForUser(binding.username)
         Picasso.get()
             .load(detailViewArg.img)
             .error(com.picpay.desafio.android.R.drawable.ic_round_account_circle)
@@ -50,6 +53,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun setBackButton() {
+        AccessibilityUtils.setLabelForButtonBack(binding.btnBack)
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }

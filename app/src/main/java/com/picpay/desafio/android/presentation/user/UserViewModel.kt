@@ -29,7 +29,6 @@ class UserViewModel @Inject constructor(
     fun fetchUsers() {
         viewModelScope.launch {
             _screenState.postValue(ScreenState.LOADING)
-
             try {
                 val users = getUsersUseCase()
                 if (users.isEmpty()) {
