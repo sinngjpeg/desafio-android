@@ -56,7 +56,6 @@ class UserFragmentTest {
             .check(matches(isDisplayed()))
     }
 
-
     @Test
     fun shouldShowLoadingIndicator_whenStateIsLoading() {
         val idlingResource = LiveDataIdlingResource(screenStateLiveData, ScreenState.LOADING)
@@ -68,7 +67,6 @@ class UserFragmentTest {
 
         IdlingRegistry.getInstance().unregister(idlingResource)
     }
-
 
     @After
     fun tearDown() {

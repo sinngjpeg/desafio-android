@@ -14,5 +14,4 @@ class DetailFragmentTest{
     private val mockUsers = MockUsers.users
     private lateinit var server: MockWebServer
 
-
 }
