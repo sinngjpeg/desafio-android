@@ -2,14 +2,15 @@ package com.picpay.desafio.android.presentation.user
 
 import androidx.lifecycle.MutableLiveData
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.picpay.desafio.android.R
-import com.picpay.desafio.android.domain.model.MockUsers
+import com.picpay.desafio.android.com.picpay.desafio.android.common.LiveDataIdlingResource
+import com.picpay.desafio.android.com.picpay.desafio.android.model.MockUsers
 import com.picpay.desafio.android.domain.model.ScreenState
 import com.picpay.desafio.android.domain.model.User
 import com.picpay.desafio.android.launchFragmentInHiltContainer
@@ -38,18 +39,10 @@ class UserFragmentTest {
 
     @Before
     fun setUp() {
-        server = MockWebServer().apply {
-            start(9090)
-        }
+//        server = MockWebServer().apply {
+//            start(9090)
+//        }
         launchFragmentInHiltContainer<UserFragment>()
-    }
-
-    @Test
-    fun shouldShowLoadingIndicator_whenStateIsLoading() {
-        screenStateLiveData.postValue(ScreenState.LOADING)
-
-        onView(withId(R.id.include_view_user_loading_state))
-            .check(matches(isDisplayed()))
     }
 
     @Test
@@ -58,10 +51,24 @@ class UserFragmentTest {
         onView(withId(R.id.title))
             .check(matches(isDisplayed()))
         onView(withId(R.id.title))
-            .check(matches(withText("Contacts")))
+            .check(matches(withText("Contatos")))
         onView(withId(R.id.title))
             .check(matches(isDisplayed()))
     }
+
+
+    @Test
+    fun shouldShowLoadingIndicator_whenStateIsLoading() {
+        val idlingResource = LiveDataIdlingResource(screenStateLiveData, ScreenState.LOADING)
+        IdlingRegistry.getInstance().register(idlingResource)
+        screenStateLiveData.postValue(ScreenState.LOADING)
+
+        onView(withId(R.id.include_view_user_loading_state))
+            .check(matches(isDisplayed()))
+
+        IdlingRegistry.getInstance().unregister(idlingResource)
+    }
+
 
     @After
     fun tearDown() {

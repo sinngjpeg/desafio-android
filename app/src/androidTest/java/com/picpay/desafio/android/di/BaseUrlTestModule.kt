@@ -9,7 +9,6 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object BaseUrlTestModule {
 
-//    @BaseUrl
     @Provides
     fun provideBaseUrl(): String = "http://localhost:9090/"
 }

@@ -1,4 +1,6 @@
-package com.picpay.desafio.android.domain.model
+package com.picpay.desafio.android.com.picpay.desafio.android.model
+
+import com.picpay.desafio.android.domain.model.User
 
 object MockUsers {
     val users = listOf(

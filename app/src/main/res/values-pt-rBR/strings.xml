@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Contatos PicPay</string>
-    <string name="title">Contatos</string>
-    <string name="error">Ocorreu um erro. Tente novamente.</string>
-    <string name="common_update">Atualizar</string>
-    <string name="description_loading">Carregando informações</string>
-    <string name="description_button_back">Botão voltar</string>
-</resources>

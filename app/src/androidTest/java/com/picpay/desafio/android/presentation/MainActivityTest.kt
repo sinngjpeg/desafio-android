@@ -5,13 +5,14 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.presentation.user.UserFragment
+import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-
+@HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
