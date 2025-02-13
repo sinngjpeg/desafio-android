@@ -1,69 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_card"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:importantForAccessibility="noHideDescendants">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <View
+        android:id="@+id/shimmer_picture"
+        style="@style/ShimmerViewStyle"
+        android:layout_width="@dimen/dimen_picture"
+        android:layout_height="@dimen/dimen_picture"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_picture"
+        android:layout_marginBottom="@dimen/margin_picture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/shimmer_picture"
-            android:layout_width="@dimen/dimen_picture"
-            android:layout_height="@dimen/dimen_picture"
-            android:layout_marginStart="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_picture"
-            android:layout_marginBottom="@dimen/margin_picture"
-            android:background="@drawable/shimmer_item_user_background"
-            android:contentDescription="@null"
-            android:importantForAccessibility="no"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:id="@+id/shimmer_username"
+        style="@style/ShimmerViewStyle"
+        android:layout_width="@dimen/shimmer_width"
+        android:layout_height="@dimen/shimmer_height"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintBottom_toTopOf="@+id/shimmer_name"
+        app:layout_constraintStart_toEndOf="@+id/shimmer_picture"
+        app:layout_constraintTop_toTopOf="@+id/shimmer_picture" />
 
-        <View
-            android:id="@+id/shimmer_username"
-            android:layout_width="@dimen/shimmer_width"
-            android:layout_height="@dimen/shimmer_height"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginTop="@dimen/margin_small"
-            android:background="@drawable/shimmer_item_user_background"
-            android:contentDescription="@null"
-            android:importantForAccessibility="no"
-            app:layout_constraintBottom_toTopOf="@+id/shimmer_name"
-            app:layout_constraintStart_toEndOf="@+id/shimmer_picture"
-            app:layout_constraintTop_toTopOf="@+id/shimmer_picture" />
+    <View
+        android:id="@+id/shimmer_name"
+        style="@style/ShimmerViewStyle"
+        android:layout_width="@dimen/shimmer_width"
+        android:layout_height="@dimen/shimmer_height"
+        android:layout_marginTop="@dimen/margin_shimmer_name"
+        android:layout_marginBottom="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="@+id/shimmer_picture"
+        app:layout_constraintStart_toStartOf="@+id/shimmer_username"
+        app:layout_constraintTop_toBottomOf="@+id/shimmer_username" />
 
-        <View
-            android:id="@+id/shimmer_name"
-            android:layout_width="@dimen/shimmer_width"
-            android:layout_height="@dimen/shimmer_height"
-            android:layout_marginTop="@dimen/margin_shimmer_name"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:background="@drawable/shimmer_item_user_background"
-            android:contentDescription="@null"
-            android:importantForAccessibility="no"
-            app:layout_constraintBottom_toBottomOf="@+id/shimmer_picture"
-            app:layout_constraintStart_toStartOf="@+id/shimmer_username"
-            app:layout_constraintTop_toBottomOf="@+id/shimmer_username" />
-
-        <View
-            android:id="@+id/shimmer_progressbar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
-            android:layout_marginEnd="@dimen/margin_small"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:background="@drawable/shimmer_item_user_background"
-            android:importantForAccessibility="noHideDescendants"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/shimmer_picture"
-            app:layout_constraintEnd_toEndOf="@+id/shimmer_picture"
-            app:layout_constraintStart_toStartOf="@+id/shimmer_picture"
-            app:layout_constraintTop_toTopOf="@+id/shimmer_picture" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+    <View
+        android:id="@+id/shimmer_progressbar"
+        style="@style/ShimmerViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:importantForAccessibility="noHideDescendants"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/shimmer_picture"
+        app:layout_constraintEnd_toEndOf="@+id/shimmer_picture"
+        app:layout_constraintStart_toStartOf="@+id/shimmer_picture"
+        app:layout_constraintTop_toTopOf="@+id/shimmer_picture" />
+</androidx.constraintlayout.widget.ConstraintLayout>

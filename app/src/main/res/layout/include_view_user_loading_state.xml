@@ -4,14 +4,14 @@
     android:id="@+id/shimmer_users"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="@string/description_loading"
     app:shimmer_repeat_mode="restart"
     app:shimmer_shape="radial">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAccessibility="yes"
-        android:contentDescription="@string/description_loading"
+        android:importantForAccessibility="no"
         android:orientation="vertical">
 
         <include layout="@layout/shimmer_item_user" />
