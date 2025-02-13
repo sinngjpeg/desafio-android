@@ -4,7 +4,9 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.picpay.desafio.android.R
+import com.picpay.desafio.android.presentation.user.UserFragment
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,6 +33,20 @@ class MainActivityTest {
         scenario.onActivity { activity ->
             // Verificar novamente após recriação
             assertNotNull(activity.supportFragmentManager.findFragmentById(R.id.nav_host_fragment))
+        }
+    }
+
+    @Test
+    fun testInitialFragmentIsLoaded() {
+        val scenario = ActivityScenario.launch(MainActivity::class.java)
+
+        scenario.onActivity { activity ->
+            // Obter o NavHostFragment
+            val navHostFragment = activity.supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+
+            // Verificar se o fragment inicial foi carregado
+            val currentFragment = navHostFragment?.childFragmentManager?.fragments?.firstOrNull()
+            assertTrue(currentFragment is UserFragment)
         }
     }
 }
