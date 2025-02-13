@@ -6,7 +6,6 @@
     <dimen name="margin_large">24dp</dimen>
     <dimen name="margin_xlarge">48dp</dimen>
 
-
     <!-- Espaçamentos -->
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">16dp</dimen>
@@ -28,5 +27,5 @@
     <dimen name="margin_shimmer_name">4dp</dimen>
     <dimen name="shimmer_width">150dp</dimen>
     <dimen name="shimmer_height">24dp</dimen>
-
+    <dimen name="detail_picture_size">120dp</dimen>
 </resources>
