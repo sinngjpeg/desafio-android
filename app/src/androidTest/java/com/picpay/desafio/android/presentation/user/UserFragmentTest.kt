@@ -38,9 +38,9 @@ class UserFragmentTest {
 
     @Before
     fun setUp() {
-        server = MockWebServer().apply {
-            start(9090)
-        }
+//        server = MockWebServer().apply {
+//            start(9090)
+//        }
         launchFragmentInHiltContainer<UserFragment>()
     }
 

@@ -47,7 +47,6 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initUsersAdapter()
         observeUsersViewModel()
-//      setScreenState(ScreenState.LOADING)
         fetchUsers()
     }
 
@@ -63,17 +62,14 @@ class UserFragment : Fragment() {
     }
 
     private fun observeUsersViewModel() {
-        // Observa o estado da tela.
         viewModel.screenState.observe(viewLifecycleOwner) { state ->
             setScreenState(state)
         }
 
-        // Observa a lista de usuários.
         viewModel.users.observe(viewLifecycleOwner) { userList ->
             adapter.submitList(userList)
         }
 
-        // Observa mensagens de erro.
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
         }
@@ -97,17 +93,23 @@ class UserFragment : Fragment() {
                 setShimmerVisibility(true)
                 binding.viewFlipper.displayedChild = FLIPPER_CHILD_LOADING
             }
+
             ScreenState.SUCCESS -> {
                 setShimmerVisibility(false)
                 binding.viewFlipper.displayedChild = FLIPPER_CHILD_SUCCESS
             }
+
             ScreenState.EMPTY -> {
                 setShimmerVisibility(false)
                 binding.viewFlipper.displayedChild = FLIPPER_CHILD_ERROR
             }
+
             ScreenState.ERROR -> {
                 setShimmerVisibility(false)
                 binding.viewFlipper.displayedChild = FLIPPER_CHILD_ERROR
+                binding.includeViewErrorState.buttonRetry.setOnClickListener {
+                    fetchUsers()
+                }
             }
         }
     }
