@@ -46,8 +46,6 @@ retrofit = "2.9.0"
 room = "2.6.1"
 
 shimmer = "0.5.0"
-splashscreen = "1.0.1"
-
 
 [libraries]
 
@@ -117,9 +115,6 @@ room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 # Shimmer
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
-
-# Splash Screen
-androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
 
 # Test
 androidxTestRunner = { module = "androidx.test:runner", version.ref = "androidxTest" }

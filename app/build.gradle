@@ -141,9 +141,6 @@ dependencies {
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
 
-    //Splash Screen
-    implementation(libs.androidx.core.splashscreen)
-
     // Shimmer
     implementation(libs.shimmer)
 
@@ -165,7 +162,6 @@ dependencies {
     androidTestImplementation(libs.mockwebserver)
 
     testImplementation(libs.mockwebserver)
-
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.mockk.core)
     testImplementation(libs.mockwebserver)
