@@ -32,13 +32,19 @@ class UserRepositoryImpl @Inject constructor(
                 userDAO.insertUsers(usersFromApi.map { UserEntity.fromDomainModel(it) })
                 return@withContext usersFromApi
             } catch (e: IOException) {
-                throw NetworkException("Erro de rede ao buscar usuários", e)
+                throw NetworkException(ErrorMessages.NETWORK_ERROR, e)
             } catch (e: HttpException) {
-                throw ApiException("Erro HTTP ao buscar usuários", e)
+                throw ApiException(ErrorMessages.HTTP_ERROR, e)
             } catch (e: Exception) {
-                throw GeneralException("Erro inesperado ao buscar usuários", e)
+                throw GeneralException(ErrorMessages.GENERAL_ERROR, e)
             }
         }
+    }
+
+    companion object ErrorMessages {
+        const val NETWORK_ERROR = "Erro de rede ao buscar usuários"
+        const val HTTP_ERROR = "Erro HTTP ao buscar usuários"
+        const val GENERAL_ERROR = "Erro inesperado ao buscar usuários"
     }
 }
 
