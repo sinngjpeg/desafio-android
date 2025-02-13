@@ -14,4 +14,32 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="ShimmerViewStyle">
+        <item name="android:background">@drawable/shimmer_item_user_background</item>
+        <item name="android:contentDescription">@null</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="TextItemUserViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ErrorTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+    </style>
+
+    <style name="RetryButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+    </style>
+
 </resources>
