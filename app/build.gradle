@@ -1,12 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-parcelize")
+    alias(libs.plugins.navigation.safeargs)
     alias(libs.plugins.ksp)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
     id("kotlin-kapt")
-    alias(libs.plugins.navigation.safeargs)
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -24,13 +25,16 @@ android {
             useSupportLibrary = true
         }
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.picpay.desafio.android.CustomTestRunner"
 
         buildConfigField "String", "BASE_URL", '"https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"'
     }
 
     buildTypes {
-        debug {}
+        debug {
+            applicationIdSuffix '.debug'
+            debuggable true
+        }
 
         release {
             minifyEnabled true
@@ -102,6 +106,7 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    androidTestImplementation(libs.androidx.navigation.testing)
 
     // Hilt
     implementation(libs.hilt.android)
@@ -152,6 +157,14 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation libs.androidxTestRunner
     androidTestImplementation libs.androidxTestRules
+
+    //Testes Espresso
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.android.fragment.testing)
+    androidTestImplementation(libs.mockwebserver)
+
+    testImplementation(libs.mockwebserver)
 
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.mockk.core)

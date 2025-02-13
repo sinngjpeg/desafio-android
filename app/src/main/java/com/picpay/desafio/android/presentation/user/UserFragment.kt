@@ -47,7 +47,7 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initUsersAdapter()
         observeUsersViewModel()
-        setScreenState(ScreenState.LOADING)
+//      setScreenState(ScreenState.LOADING)
         fetchUsers()
     }
 
@@ -57,6 +57,7 @@ class UserFragment : Fragment() {
     }
 
     private fun initUsersAdapter() {
+        binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
     }
