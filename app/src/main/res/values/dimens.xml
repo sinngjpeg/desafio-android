@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margens -->
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">48dp</dimen>
+
+    <!-- Espaçamentos -->
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+
+    <!-- Tamanhos de texto -->
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
+    <dimen name="text_size_xxlarge">32sp</dimen>
+
+    <!-- Tamanhos Personalizados   -->
+    <dimen name="dimen_picture">52dp</dimen>
+    <dimen name="margin_card">4dp</dimen>
+    <dimen name="corner_radius_card">12dp</dimen>
+    <dimen name="elevation_card">6dp</dimen>
+    <dimen name="margin_picture">12dp</dimen>
+    <dimen name="margin_shimmer_name">4dp</dimen>
+    <dimen name="shimmer_width">150dp</dimen>
+    <dimen name="shimmer_height">24dp</dimen>
+    <dimen name="detail_picture_size">120dp</dimen>
+</resources>
