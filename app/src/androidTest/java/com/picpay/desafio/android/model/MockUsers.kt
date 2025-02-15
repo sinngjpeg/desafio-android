@@ -1,16 +1,16 @@
 package com.picpay.desafio.android.com.picpay.desafio.android.model
 
-import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.core.domain.model.User
 
 object MockUsers {
     val users = listOf(
-        User(
+        com.picpay.desafio.core.domain.model.User(
             id = 1,
             name = "Sandrine Spinka",
             username = "Tod86",
             img = "https://randomuser.me/api/portraits/men/1.jpg"
         ),
-        User(
+        com.picpay.desafio.core.domain.model.User(
             id = 2,
             name = "Carli Carroll",
             username = "Constantin_Sawayn",
@@ -18,5 +18,5 @@ object MockUsers {
         )
     )
 
-    val emptyUsers = emptyList<User>()
+    val emptyUsers = emptyList<com.picpay.desafio.core.domain.model.User>()
 }

@@ -8,7 +8,7 @@ import kotlinx.coroutines.test.UnconfinedTestDispatcher
 @ExperimentalCoroutinesApi
 class TestCoroutinesDispatchers(
     private val testDispatcher: TestDispatcher = UnconfinedTestDispatcher()
-) : CoroutinesDispatchers {
+) : com.picpay.desafio.core.usecase.base.CoroutinesDispatchers {
     override fun main(): CoroutineDispatcher = testDispatcher
     override fun default(): CoroutineDispatcher = testDispatcher
     override fun io(): CoroutineDispatcher = testDispatcher

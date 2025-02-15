@@ -11,9 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.picpay.desafio.android.databinding.FragmentUserBinding
-import com.picpay.desafio.android.domain.model.ScreenState
-import com.picpay.desafio.android.domain.model.User
 import com.picpay.desafio.android.presentation.detail.DetailViewArg
+import com.picpay.desafio.core.usecase.base.ScreenState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -74,7 +73,7 @@ class UserFragment : Fragment() {
         }
     }
 
-    private fun navigateToDetail(user: User) {
+    private fun navigateToDetail(user: com.picpay.desafio.core.domain.model.User) {
         val action = UserFragmentDirections.actionUserFragmentToDetailFragment(
             DetailViewArg(
                 img = user.img,

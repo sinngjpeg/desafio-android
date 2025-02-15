@@ -11,3 +11,15 @@ kotlin {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }
+
+dependencies{
+    api(libs.okhttp)
+    api(libs.logging.interceptor)
+
+    api(libs.retrofit.core)
+    api(libs.retrofit.gson)
+    
+    api(libs.javax.inject)
+    api(libs.coroutines.core)
+
+}

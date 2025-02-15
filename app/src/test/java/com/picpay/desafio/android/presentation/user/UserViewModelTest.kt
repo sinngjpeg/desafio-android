@@ -3,9 +3,8 @@ package com.picpay.desafio.android.presentation.user
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.picpay.desafio.android.domain.model.MockUsers
-import com.picpay.desafio.android.domain.model.ScreenState
-import com.picpay.desafio.android.domain.model.User
-import com.picpay.desafio.android.domain.usecase.GetUsersUseCase
+import com.picpay.desafio.core.usecase.GetUsersUseCase
+import com.picpay.desafio.core.usecase.base.ScreenState
 import io.mockk.called
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -33,7 +32,7 @@ class UserViewModelTest {
 
     private lateinit var viewModel: UserViewModel
     private val getUsersUseCase: GetUsersUseCase = mockk()
-    private val usersObserver: Observer<List<User>> = mockk(relaxed = true)
+    private val usersObserver: Observer<List<com.picpay.desafio.core.domain.model.User>> = mockk(relaxed = true)
     private val errorObserver: Observer<String> = mockk(relaxed = true)
     private val screenStateObserver: Observer<ScreenState> = mockk(relaxed = true)
     private val mockUsers = MockUsers.users

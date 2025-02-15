@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.domain.model
+package com.picpay.desafio.core.usecase.base
 
 enum class ScreenState {
     LOADING,

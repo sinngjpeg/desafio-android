@@ -1,7 +1,7 @@
 package com.picpay.desafio.android.framework.di
 
-import com.picpay.desafio.android.common.AppCoroutinesDispatchers
-import com.picpay.desafio.android.common.CoroutinesDispatchers
+import com.picpay.desafio.core.usecase.base.AppCoroutinesDispatchers
+import com.picpay.desafio.core.usecase.base.CoroutinesDispatchers
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,6 +15,6 @@ abstract class DispatcherModule {
     @Binds
     @Singleton
     abstract fun bindCoroutinesDispatchers(
-        dispatchers: AppCoroutinesDispatchers
-    ): CoroutinesDispatchers
+        dispatchers: com.picpay.desafio.core.usecase.base.AppCoroutinesDispatchers
+    ): com.picpay.desafio.core.usecase.base.CoroutinesDispatchers
 }

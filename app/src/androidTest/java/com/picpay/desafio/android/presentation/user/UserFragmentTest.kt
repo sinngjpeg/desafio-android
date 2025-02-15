@@ -11,8 +11,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.com.picpay.desafio.android.common.LiveDataIdlingResource
 import com.picpay.desafio.android.com.picpay.desafio.android.model.MockUsers
-import com.picpay.desafio.android.domain.model.ScreenState
-import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.core.usecase.base.ScreenState
 import com.picpay.desafio.android.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -34,7 +33,7 @@ class UserFragmentTest {
     private lateinit var server: MockWebServer
 
     private val screenStateLiveData = MutableLiveData<ScreenState>()
-    private val usersLiveData = MutableLiveData<List<User>>()
+    private val usersLiveData = MutableLiveData<List<com.picpay.desafio.core.domain.model.User>>()
     private val errorLiveData = MutableLiveData<String>()
 
     @Before

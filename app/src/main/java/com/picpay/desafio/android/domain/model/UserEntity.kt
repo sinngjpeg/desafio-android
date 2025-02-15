@@ -10,7 +10,7 @@ data class UserEntity(
     val username: String,
     val img: String
 ) {
-    fun toDomainModel() = User(
+    fun toDomainModel() = com.picpay.desafio.core.domain.model.User(
         id = id,
         name = name,
         username = username,
@@ -18,7 +18,7 @@ data class UserEntity(
     )
 
     companion object {
-        fun fromDomainModel(user: User) = UserEntity(
+        fun fromDomainModel(user: com.picpay.desafio.core.domain.model.User) = UserEntity(
             id = user.id,
             name = user.name,
             username = user.username,

@@ -3,12 +3,12 @@ package com.picpay.desafio.android.framework.di
 import android.content.Context
 import androidx.room.Room
 import com.picpay.desafio.android.BuildConfig
-import com.picpay.desafio.android.common.AppCoroutinesDispatchers
 import com.picpay.desafio.android.data.repository.UserRepositoryImpl
 import com.picpay.desafio.android.domain.local.AppDataBase
 import com.picpay.desafio.android.domain.local.UserDAO
-import com.picpay.desafio.android.domain.repository.UserRepository
 import com.picpay.desafio.android.framework.network.PicPayService
+import com.picpay.desafio.core.data.repository.UserRepository
+import com.picpay.desafio.core.usecase.base.AppCoroutinesDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -94,8 +94,8 @@ object NetworkModule {
     fun provideUserRepository(
         service: PicPayService,
         userDAO: UserDAO,
-        dispatchers: AppCoroutinesDispatchers
-    ): UserRepository {
+        dispatchers: com.picpay.desafio.core.usecase.base.AppCoroutinesDispatchers
+    ): com.picpay.desafio.core.data.repository.UserRepository {
         return UserRepositoryImpl(service, userDAO, dispatchers)
     }
 }

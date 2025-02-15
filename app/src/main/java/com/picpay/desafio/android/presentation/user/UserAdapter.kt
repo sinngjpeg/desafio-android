@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.picpay.desafio.android.databinding.ItemUserBinding
-import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.core.domain.model.User
 
 
 class UserAdapter(
@@ -26,7 +26,10 @@ class UserAdapter(
     }
 
     class DiffCallback : DiffUtil.ItemCallback<User>() {
-        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+        override fun areItemsTheSame(
+            oldItem: User,
+            newItem: User
+        ): Boolean {
             return oldItem.id == newItem.id
         }
 

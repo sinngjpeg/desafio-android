@@ -3,15 +3,15 @@ package com.picpay.desafio.android.presentation.user
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.databinding.ItemUserBinding
-import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.core.domain.model.User
 import com.squareup.picasso.Picasso
 
 class UserViewHolder(
     private val binding: ItemUserBinding,
-    private val onItemClick: (User) -> Unit
+    private val onItemClick: (com.picpay.desafio.core.domain.model.User) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(user: User) {
+    fun bind(user: com.picpay.desafio.core.domain.model.User) {
         binding.name.text = user.name
         binding.username.text = user.username
         binding.progressBar.visibility = View.VISIBLE
