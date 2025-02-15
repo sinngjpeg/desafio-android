@@ -3,12 +3,10 @@ package com.picpay.desafio.android.framework.di
 import android.content.Context
 import androidx.room.Room
 import com.picpay.desafio.android.BuildConfig
-import com.picpay.desafio.android.data.repository.UserRepositoryImpl
-import com.picpay.desafio.android.domain.local.AppDataBase
-import com.picpay.desafio.android.domain.local.UserDAO
+import com.picpay.desafio.android.framework.UserRepositoryImpl
+import com.picpay.desafio.android.framework.dao.UserDAO
+import com.picpay.desafio.android.framework.local.AppDataBase
 import com.picpay.desafio.android.framework.network.PicPayService
-import com.picpay.desafio.core.data.repository.UserRepository
-import com.picpay.desafio.core.usecase.base.AppCoroutinesDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

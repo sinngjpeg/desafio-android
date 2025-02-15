@@ -1,7 +1,8 @@
-package com.picpay.desafio.android.domain.model
+package com.picpay.desafio.android.framework.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.picpay.desafio.core.domain.model.User
 
 @Entity(tableName = "users")
 data class UserEntity(
@@ -10,7 +11,7 @@ data class UserEntity(
     val username: String,
     val img: String
 ) {
-    fun toDomainModel() = com.picpay.desafio.core.domain.model.User(
+    fun toDomainModel() = User(
         id = id,
         name = name,
         username = username,
@@ -18,7 +19,7 @@ data class UserEntity(
     )
 
     companion object {
-        fun fromDomainModel(user: com.picpay.desafio.core.domain.model.User) = UserEntity(
+        fun fromDomainModel(user: User) = UserEntity(
             id = user.id,
             name = user.name,
             username = user.username,

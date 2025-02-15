@@ -8,9 +8,10 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.picpay.desafio.android.common.ApiException
 import com.picpay.desafio.android.common.NetworkException
 import com.picpay.desafio.android.common.TestCoroutinesDispatchers
-import com.picpay.desafio.android.domain.local.UserDAO
 import com.picpay.desafio.android.domain.model.MockUsers
-import com.picpay.desafio.android.domain.model.UserEntity
+import com.picpay.desafio.android.framework.UserRepositoryImpl
+import com.picpay.desafio.android.framework.dao.UserDAO
+import com.picpay.desafio.android.framework.entity.UserEntity
 import com.picpay.desafio.android.framework.network.PicPayService
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest

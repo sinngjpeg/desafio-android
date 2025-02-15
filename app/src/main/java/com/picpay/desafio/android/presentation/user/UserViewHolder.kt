@@ -8,10 +8,10 @@ import com.squareup.picasso.Picasso
 
 class UserViewHolder(
     private val binding: ItemUserBinding,
-    private val onItemClick: (com.picpay.desafio.core.domain.model.User) -> Unit
+    private val onItemClick: (User) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(user: com.picpay.desafio.core.domain.model.User) {
+    fun bind(user: User) {
         binding.name.text = user.name
         binding.username.text = user.username
         binding.progressBar.visibility = View.VISIBLE
