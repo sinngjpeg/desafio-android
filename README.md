@@ -73,6 +73,25 @@ Algumas ideias para melhorar ainda mais o projeto:
 1. Implementar paginação na lista de usuários usando Paging 3.
 2. Adicionar suporte a diferentes idiomas (internacionalização).
 3. Melhorar a cobertura dos testes unitários e instrumentados.
+4. 
+
+## Links Importantes
+
+Esta seção fornece acesso rápido a recursos relevantes para o projeto:
+
+- [Injeção de dependencia com o Hilt](https://developer.android.com/training/dependency-injection/hilt-android?hl=pt-br) - Ferramenta para Injeção de Dependencia
+- [Detekt](https://detekt.dev/) - Ferramenta de análise estática para código Kotlin
+- [Picasso](https://square.github.io/picasso/) - Biblioteca para carregamento e cache de imagens
+- [Retrofit](https://square.github.io/retrofit/) - Cliente HTTP type-safe para Android 
+- [OkHttp](https://square.github.io/okhttp/) - Cliente HTTP eficiente para Android 
+- [Coroutines](https://developer.android.com/kotlin/coroutines?hl=pt-br) - Programação assíncrona para Android com Kotlin
+- [Ciclo de Vida da Activity](https://developer.android.com/guide/components/activities/activity-lifecycle?hl=pt-br) - Documentação sobre o ciclo de vida das Activities
+- [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle?hl=pt-br) - Componente do Android Jetpack para gerenciar o ciclo de vida
+- [Shimmer](https://github.com/facebookarchive/shimmer-android) - Biblioteca para efeitos de carregamento em Android
+- [MockK](https://mockk.io/) - Biblioteca de mocking para Kotlin
+- [Testes Locais no Android](https://developer.android.com/training/testing/local-tests?hl=pt-br) - Guia para testes unitários em Android
+- [JUnit 5](https://junit.org/junit5/) - Framework de testes para Java e Kotlin
+
 
 ---
 
